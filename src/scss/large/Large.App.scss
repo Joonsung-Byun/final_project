@@ -1,0 +1,38 @@
+@media screen and (min-width: 1025px) {
+    .app_container {
+       #dropdown {
+        display: none;
+       }
+       .header_container {
+        align-items: center;
+        #table_menu {
+            display: block;
+       }
+       
+        ul {
+            display: flex;
+            justify-content: right;
+            margin: 0;
+        }
+        li {
+            padding: 10px;
+            list-style: none;
+            cursor: pointer;
+            border-right: 1px solid white;
+            &:last-child {
+                border-right: none;
+            }
+            .home_link{
+                color: rgb(194,194,194);
+                &:hover {
+                    color: white;
+                }
+            }
+        }
+       }
+       .live_matches, .upcoming_container, .topscore_container, .favorite_matches {
+        max-width: 900px;
+        margin: 0 auto;
+       }
+    }
+}

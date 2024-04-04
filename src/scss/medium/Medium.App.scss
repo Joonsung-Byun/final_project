@@ -1,0 +1,35 @@
+@media screen and (min-width: 768px) and (max-width: 1024px){
+    .app_container {
+       #dropdown {
+        display: none;
+       }
+       .header_container {
+        align-items: center;
+        #table_menu {
+            display: block;
+       }
+       
+        ul {
+            display: flex;
+            justify-content: right;
+            margin: 0;
+        }
+        li {
+            padding: 10px;
+            list-style: none;
+            cursor: pointer;
+            border-right: 1px solid white;
+            &:last-child {
+                border-right: none;
+            }
+            .home_link{
+                color: rgb(194,194,194);
+                &:hover {
+                    color: white;
+                }
+            }
+        }
+        
+       }
+    }
+}

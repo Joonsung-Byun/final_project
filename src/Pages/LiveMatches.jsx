@@ -1,0 +1,115 @@
+import React from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { addFavoriteMatch } from "../../store.js"
+import { useSelector } from "react-redux"
+
+export default function LiveMatches() {
+  let [live_matches, setLive_matches] = useState([]);
+  let dispatch = useDispatch()
+  let [loading, setLoading] = useState(true);
+  let [error, setError] = useState(null);
+  let state = useSelector((state) => { return state } )
+  useEffect(() => {
+    const options = {
+      method: 'GET',
+      url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures',
+      params: {live: 'all'},
+      headers: {
+        'X-RapidAPI-Key': '67142be9e1msha21067b17d884d6p1f558ejsn8dc79fea8402',
+        'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
+      }
+    };
+
+    const fetchData = async () => {
+      try {
+        const response = await axios.request(options);
+        let new_live_matches = [...response.data.response].map(match => ({ ...match, favorite: false }));
+        setLive_matches([...new_live_matches]);
+        setLoading(false);
+      } catch (error) {
+        console.error(error);
+        setError(error);
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    console.log(live_matches);
+
+    // console.log(home_scorer)
+
+  }, [live_matches]);
+  if (loading) return "Loading...";
+  if (error) return `Error: ${error.message}`;
+
+  return (
+    <div className="live_matches">
+      <h2>Live Matches</h2>
+      {
+        live_matches.map((match, i) => {
+          return (
+            <section key={i} className="live_matches_container">
+              <p><strong>Status:</strong> {match.fixture.status.long}</p>
+              <p>
+                <span className="text_bold">League:</span> {match.league.name}
+              </p>
+
+              <div className="img_container">
+                <img src={match.teams.home.logo} />
+                <div id="live_score_board">
+                  {match.goals.home} - {match.goals.away}
+                </div>
+                <img src={match.teams.away.logo} />
+              </div>
+
+              <p className="team_container">
+                <span className="team_name">{match.teams.home.name}</span>
+                <span id="vs">vs</span>
+                <span className="team_name"> {match.teams.away.name}</span>
+              </p>
+
+              <div className="score_history">
+                <div id="home_score_history">
+                    {match.events.map((event, i) => {
+                      if(event.type === "Goal" && event.team.name === match.teams.home.name){
+                        if(event.player.name !== null) {
+                          return <p>{event.player.name} {event.time.elapsed}'</p>
+                        }else {
+                          return <p>No name {event.time.elapsed}'</p>
+                        }
+
+                      }
+                    })}
+                </div>
+
+                <div id="away_score_history">
+                {match.events.map((event, i) => {
+                      if(event.type === "Goal" && event.team.name === match.teams.away.name){
+                        if(event.player.name !== null) {
+                          return <p>{event.player.name} {event.time.elapsed}'</p>
+                        } else {
+                          return <p>No name {event.time.elapsed}'</p>
+                        }
+                      }
+                    })}
+                    
+                </div>
+              </div>
+
+              <button onClick={()=>{
+                let new_live_matches = [...live_matches];
+                new_live_matches[i].favorite = !new_live_matches[i].favorite;
+                setLive_matches(new_live_matches);
+                dispatch(addFavoriteMatch(live_matches[i].fixture.id))
+              }}>Mark as Favorite ⭐</button>
+            </section>
+          );
+        })
+     }
+    </div>
+  );
+}

@@ -1,0 +1,35 @@
+@media screen and (min-width: 1025px) {
+  .app_container #dropdown {
+    display: none;
+  }
+  .app_container .header_container {
+    align-items: center;
+  }
+  .app_container .header_container #table_menu {
+    display: block;
+  }
+  .app_container .header_container ul {
+    display: flex;
+    justify-content: right;
+    margin: 0;
+  }
+  .app_container .header_container li {
+    padding: 10px;
+    list-style: none;
+    cursor: pointer;
+    border-right: 1px solid white;
+  }
+  .app_container .header_container li:last-child {
+    border-right: none;
+  }
+  .app_container .header_container li .home_link {
+    color: rgb(194, 194, 194);
+  }
+  .app_container .header_container li .home_link:hover {
+    color: white;
+  }
+  .app_container .live_matches, .app_container .upcoming_container, .app_container .topscore_container, .app_container .favorite_matches {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+}
