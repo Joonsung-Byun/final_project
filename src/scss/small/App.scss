@@ -362,5 +362,151 @@
     }
 }
 
+#byteams_container {
+    padding: 2%;
+    background-color: #e2e2e2;
+    h2 {
+        padding: 10px 0 5px;
+    }
+    form {
+        padding-bottom: 20px;
+        input {
+            width: 200px;
+            height: 40px;
+            font-size: 15px;
+            border: 0;
+            border-radius: 15px;
+            outline: none;
+            padding-left: 10px;
+            background-color: rgb(255, 255, 255);
+            box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+            padding: 2px 10px;
+        }
+        button {
+            margin-left: 10px;
+            padding: 5px 12px;
+            border: 1px solid #d4d4d4;
+            background-color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            transition: color 0.3s ease;
+            box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+            &:hover {
+                background-color: rgb(78, 54, 255);
+                color: white;
+            }
+        
+        }
+    }
+    #team_info {
+        .team_card {
+            background-color: white;
+            border-radius: 9px;
+            a {
+                display: block;
+                margin: 5px 0;
+                color: black;
+                text-decoration: none;
+                padding: 10px 8px;
+                
+                &:hover {
+                   background-color: rgb(240, 240, 240);
+                   border-radius: 9px;
+                }
+            }
+            
+        }
+        
+        
+    }
+    p {
+        padding-top: 10px;
+    }
+    #box {
+        .match_info {
+            background-color: white;
+            margin-bottom: 20px;
+            padding: 2%;
+            button {
+                padding: 7px 14px;
+                border: 1px solid #d4d4d4;
+                background-color: white;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+                transition: color 0.3s ease;
+                &:hover {
+                    background-color: rgb(78, 54, 255);
+                    color: white;
+                }
+            }
+            h3 {
+                text-align: center;
+                padding: 10px;
+            }
+            #time {
+                display: block;
+                font-size: 14px;
+                padding-bottom: 7px;
+            }
+            #league {
+                display: block;
+                font-size: 14px;
+                padding-bottom: 7px;
+            }
+            .image_container {
+                padding: 5px 0;
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                img {
+                    width: 70px;
+                    height: auto;
+                    display: block;
+                    margin: 0 auto;
+                }
+                .home {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                }
+                #live_score_board {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 30px;
+                }
+                .away {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                }
+            }
+            .name_container {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                justify-content: center;
+                align-items: center;
+                gap: 3px;
+                div {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                    font-size: 16px;
+                    p {
+                        margin: 0;
+                        padding-bottom: 5px;
+                    }
+                }
+            }
+        }
+    }
+}
+
 
 

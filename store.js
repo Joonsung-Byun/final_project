@@ -8,13 +8,16 @@ let favoriteMatches = createSlice({
         addFavoriteMatch(state, action){
             console.log(action.payload)
             state.push(action.payload)
-
+        },
+        removeFavoriteMatch(state, action){
+            console.log(action.payload)
+            state.splice(state.indexOf(action.payload), 1)
         }
     }
 })
 
 export const { addFavoriteMatch } = favoriteMatches.actions
-  
+export const { removeFavoriteMatch } = favoriteMatches.actions
   export default configureStore({
     reducer: {
       favoriteMatches : favoriteMatches.reducer

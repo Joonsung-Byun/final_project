@@ -341,3 +341,60 @@
   align-items: center;
   text-align: center;
 }
+
+#byteams_container {
+  padding: 2%;
+  background-color: #e2e2e2;
+}
+#byteams_container h2 {
+  padding: 10px 0 5px;
+}
+#byteams_container form {
+  padding-bottom: 20px;
+}
+#byteams_container form input {
+  width: 200px;
+  height: 32px;
+  font-size: 15px;
+  border: 0;
+  border-radius: 15px;
+  outline: none;
+  padding-left: 10px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+  padding: 2px 10px;
+}
+#byteams_container form button {
+  height: 32px;
+  margin-left: 10px;
+  padding: 2px 6px;
+  border: 1px solid #d4d4d4;
+  background-color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  transition: color 0.3s ease;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+}
+#byteams_container form button:hover {
+  background-color: rgb(78, 54, 255);
+  color: white;
+}
+#byteams_container #team_info .team_card {
+  background-color: white;
+  border-radius: 9px;
+}
+#byteams_container #team_info .team_card a {
+  display: block;
+  margin: 5px 0;
+  color: black;
+  text-decoration: none;
+  padding: 10px 8px;
+}
+#byteams_container #team_info .team_card a:hover {
+  background-color: rgb(240, 240, 240);
+  border-radius: 9px;
+}
+#byteams_container p {
+  padding-top: 10px;
+}

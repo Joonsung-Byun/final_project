@@ -4,6 +4,16 @@ import { useState } from 'react';
 import { useSelector } from "react-redux"
 // import { useDispatch } from "react-redux"
 import block from "../img/block.svg"
+
+export const matchDate = (match_date) => {
+    const dateString = match_date;
+    const date = new Date(dateString);
+    const month = date.getMonth() + 1; 
+    const day = date.getDate();
+    const hour = date.getHours();
+
+    return `${month}/ ${day}/ 0${hour}:00`;
+  }
 export default function FavoriteMatches() {
         let state = useSelector((state) => { return state } )
         let favorite_array = state.favoriteMatches
@@ -45,15 +55,7 @@ useEffect(() => {
 }, [favoriteMatches]);
 
 
-const matchDate = (match_date) => {
-    const dateString = match_date;
-    const date = new Date(dateString);
-    const month = date.getMonth() + 1; 
-    const day = date.getDate();
-    const hour = date.getHours();
 
-    return `${month}/ ${day}/ 0${hour}:00`;
-  }
     
     return (
         
@@ -65,7 +67,7 @@ const matchDate = (match_date) => {
                         <section key={i} className="favorite_matches_container">
                             <p className='date'>
                                 <span>{`Time: ${matchDate(match.fixture.date)}`}</span>
-                                <img src={block} id='block'/>  
+                                {/* <img src={block} id='block'/>   */}
                             </p>
                             <p className='status'><strong>Status:</strong> {match.fixture.status.long}</p>
                             <p>

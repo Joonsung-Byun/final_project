@@ -40,7 +40,7 @@ function App() {
             </li>
             <li>
               <Link to="/byteams" className="home_link">
-                By Teams
+                Search Teams
               </Link>
             </li>
           </ul>
@@ -74,6 +74,12 @@ function App() {
             <Dropdown.Item href="#/action-1">
               <Link to="/favorites" className="home_link">
                 My favorites
+              </Link>
+            </Dropdown.Item>
+
+            <Dropdown.Item href="#/action-1">
+              <Link to="/byTeams" className="home_link">
+                Search Teams
               </Link>
             </Dropdown.Item>
           </Dropdown.Menu>
