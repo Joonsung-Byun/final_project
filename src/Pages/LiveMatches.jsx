@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addFavoriteMatch } from "../../store.js"
 import { useSelector } from "react-redux"
+import block from "../img/block.svg"
 
 export default function LiveMatches() {
   let [live_matches, setLive_matches] = useState([]);
@@ -43,20 +44,43 @@ export default function LiveMatches() {
     // console.log(home_scorer)
 
   }, [live_matches]);
-  if (loading) return "Loading...";
-  if (error) return `Error: ${error.message}`;
+
+  useEffect(()=>{
+    if (loading) {
+      console.log(document.getElementById("loadingMatches"));
+      document.getElementById("loadingMatches").innerText = "Loading...";
+    } else {
+       document.getElementById("loadingMatches").innerText = "";
+    }
+  }, [loading])
+  
 
   return (
     <div className="live_matches">
       <h2>Live Matches</h2>
+      <p id="loadingMatches"></p>
       {
         live_matches.map((match, i) => {
           return (
             <section key={i} className="live_matches_container">
-              <p><strong>Status:</strong> {match.fixture.status.long}</p>
-              <p>
-                <span className="text_bold">League:</span> {match.league.name}
-              </p>
+
+              <div className="flex">
+                <div className="flex-left">
+                  <p><strong>Status:</strong> {match.fixture.status.long}</p>
+                  <p>
+                    <span className="text_bold">League:</span> {match.league.name}
+                  </p>
+                </div>
+                <div className="flex-right">
+                <img src={block} className="block" onClick={()=>{
+                  let new_live_matches = [...live_matches];
+                  new_live_matches.splice(i, 1);
+                  setLive_matches(new_live_matches);
+                }}></img>
+                </div>
+                
+              </div>
+
 
               <div className="img_container">
                 <img src={match.teams.home.logo} />
@@ -77,7 +101,7 @@ export default function LiveMatches() {
                     {match.events.map((event, i) => {
                       if(event.type === "Goal" && event.team.name === match.teams.home.name){
                         if(event.player.name !== null) {
-                          return <p>{event.player.name} {event.time.elapsed}'</p>
+                          return <p key={i}>{event.player.name} {event.time.elapsed}'</p>
                         }else {
                           return <p>No name {event.time.elapsed}'</p>
                         }
@@ -90,7 +114,7 @@ export default function LiveMatches() {
                 {match.events.map((event, i) => {
                       if(event.type === "Goal" && event.team.name === match.teams.away.name){
                         if(event.player.name !== null) {
-                          return <p>{event.player.name} {event.time.elapsed}'</p>
+                          return <p key={i}>{event.player.name} {event.time.elapsed}'</p>
                         } else {
                           return <p>No name {event.time.elapsed}'</p>
                         }

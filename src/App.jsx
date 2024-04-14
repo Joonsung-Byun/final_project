@@ -18,11 +18,12 @@ function App() {
 
         <nav id="table_menu">
           <ul>
-            <li>
-              <Link to="/" className="home_link">
-                Home
-              </Link>
-            </li>
+              <li>
+                <Link to="/" className="home_link">
+                  Home
+                </Link>
+              </li>
+            
             <li>
               <Link to="/coming" className="home_link">
                 Upcoming Matches
