@@ -8,7 +8,6 @@ import Topscore from "./Pages/Topscore";
 import LiveMatches from "./Pages/LiveMatches";
 import Coming_Matches from "./Pages/Coming_Matches";
 import FavoriteMatches from "./Pages/FavoriteMatches";
-import Main from "./Pages/Main";
 import ByTeams from "./Pages/Byteams";
 function App() {
   return (
@@ -20,7 +19,7 @@ function App() {
           <ul>
               <li>
                 <Link to="/" className="home_link">
-                  Home
+                  Live Matches
                 </Link>
               </li>
             
@@ -90,7 +89,6 @@ function App() {
         <Outlet />
         <Routes>
           <Route path="/" element={<LiveMatches />} />
-          <Route path="/main" element={<Main />} />
           <Route path="/coming" element={<Coming_Matches />} />
           <Route path="/topscorers" element={<Topscore />} />
           <Route path="/favorites" element={<FavoriteMatches />} />

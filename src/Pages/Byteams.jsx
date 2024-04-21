@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
+import "./byTeams.scss"
 import axios from "axios";
 import Box from "../Components/Box";
+
 
 
 function ByTeams() {

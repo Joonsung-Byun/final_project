@@ -5,6 +5,8 @@ import { useDispatch } from "react-redux";
 import { addFavoriteMatch } from "../../store.js"
 import { useSelector } from "react-redux"
 import block from "../img/block.svg"
+import "./liveMatches.scss";
+
 
 export default function LiveMatches() {
   let [live_matches, setLive_matches] = useState([]);
@@ -41,7 +43,6 @@ export default function LiveMatches() {
 
   useEffect(()=>{
     if (loading) {
-      console.log(document.getElementById("loadingMatches"));
       document.getElementById("loadingMatches").innerText = "Loading...";
     } else {
        document.getElementById("loadingMatches").innerText = "";

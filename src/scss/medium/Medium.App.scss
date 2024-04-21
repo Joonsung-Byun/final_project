@@ -1,35 +1,41 @@
 @media screen and (min-width: 768px) and (max-width: 1024px){
-    .app_container {
-       #dropdown {
-        display: none;
-       }
-       .header_container {
-        align-items: center;
-        #table_menu {
-            display: block;
-       }
-       
-        ul {
+    .app_container {    
+        .header_container {
             display: flex;
-            justify-content: right;
-            margin: 0;
-        }
-        li {
-            padding: 10px;
-            list-style: none;
-            cursor: pointer;
-            border-right: 1px solid white;
-            &:last-child {
-                border-right: none;
-            }
-            .home_link{
-                color: rgb(194,194,194);
-                &:hover {
-                    color: white;
+            padding: 16px 10px 12px 10px;
+            background-color: #1f1f1f;
+            justify-content: space-between;
+            align-items: center;
+            #table_menu {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                ul {
+                    display: flex;
+                    margin: 0;
+                    li {
+                        
+                        a {
+                            font-size: 13px;
+                            color: rgb(194, 194, 194);;
+                            text-decoration: none;
+                            padding: 10px;
+                            &:hover {
+                                color: white;
+                            }
+                        }
+                        
+                    }
                 }
             }
+            a {
+                text-decoration: none;
+            }
+            #dropdown {
+                display: none;
+            }
+            
         }
-        
-       }
     }
+    
 }

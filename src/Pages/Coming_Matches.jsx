@@ -5,6 +5,8 @@ import block from "../img/block.svg"
 import { useSelector } from "react-redux"
 import { useDispatch } from "react-redux"
 import { addFavoriteMatch } from "../../store.js"
+import { matchDate } from "./FavoriteMatches.jsx";
+import "./comingMatches.scss"
 
 
 export default function Coming_Matches(){
@@ -52,15 +54,6 @@ export default function Coming_Matches(){
     }, [coming_matches]
     )
 
-    const matchDate = (match_date) => {
-      const dateString = match_date;
-      const date = new Date(dateString);
-      const month = date.getMonth() + 1; 
-      const day = date.getDate();
-      const hour = date.getHours();
-
-      return `${month}/ ${day}/ 0${hour}:00`;
-    }
     return (
       <div className="upcoming_container">
         <h2>Upcoming Matches</h2>
@@ -106,7 +99,6 @@ export default function Coming_Matches(){
             setLimit_num(limit_num + 1);
             setMatches_num(matches_num + 5);
           } else {
-            console.log('떠라 얍~')
             set_no_more_matches('No more matches to show...');
           }
     

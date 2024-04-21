@@ -1,0 +1,58 @@
+.favorite_matches {
+    padding: 2%;
+    h2 {
+        padding: 10px 0;
+    }
+    .favorite_matches_container {
+        border: 1px solid #d4d4d4;
+        padding: 15px;
+        font-size: 14px;
+        .date {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        #block {
+            width: 25px;
+            height: 25px;
+        }
+    }
+    .img_container {
+       display: grid;
+         grid-template-columns: 1fr 1fr 1fr;
+            justify-content: center;
+            gap: 20px;
+            img {
+                width: 70px;
+                height: auto;
+                display: block;
+                margin: 0 auto;
+            }
+            #live_score_board {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 30px;
+            } 
+    }
+    .match_teams {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-content: center;
+        gap: 10px;
+        padding-top: 10px;
+        p {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        
+        }
+        span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+    }
+}

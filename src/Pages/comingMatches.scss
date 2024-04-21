@@ -1,0 +1,98 @@
+.upcoming_container {
+    padding: 2%;
+    background-color: #f3f3f3;
+    h2 {
+        padding: 10px 0;
+    }
+    .coming_match {
+        padding: 15px;
+        border-bottom: 2px solid rgb(78, 54, 255);
+        background-color: white;
+        margin-bottom: 10px;
+        p {
+            font-size: 14px;
+        }
+        .match_day {
+            padding-bottom: 8px;
+        }
+        #time_block {
+            display: flex;
+            justify-content: space-between;
+        }
+        .block {
+           width: 25px;
+           height: 25px;
+            color: red;
+        }
+        .text_bold {
+            font-weight: bold;
+        }
+        .img_container{
+            
+            padding-top: 12px;
+            padding-bottom: 8px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            justify-content: center;
+            gap: 20px;
+            img {
+                display: block;
+                width: 70px;
+                height: auto;
+                margin: 0 auto;
+            }
+            .vs {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                font-size: 16px;
+            }
+        }
+        .team_container {
+            padding-bottom: 8px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            justify-content: center;
+            span {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            
+            }
+            div {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                font-size: 16px;
+            }
+        }
+        button {
+            padding: 7px 14px;
+            border: 1px solid #d4d4d4;
+            background-color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            transition: color 0.3s ease;
+            &:hover {
+                background-color: rgb(78, 54, 255);
+                color: white;
+            }
+        }
+        
+        
+    }
+    #see_more_btn {
+        display: block;
+        margin: 15px auto;
+        background-color: rgb(78, 54, 255);
+        color: white;
+        padding: 15px 24px;
+        border-radius: 12px;
+        border: none;
+        cursor: pointer;
+    }
+}

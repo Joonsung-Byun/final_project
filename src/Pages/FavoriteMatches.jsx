@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { removeFavoriteMatch } from "../../store";
 import block from "../img/block.svg";
+import "./favoriteMatches.scss";
 
 export const matchDate = (match_date) => {
   const dateString = match_date;
@@ -13,16 +14,17 @@ export const matchDate = (match_date) => {
   const day = date.getDate();
   const hour = date.getHours();
 
-  return `${month}/ ${day}/ 0${hour}:00`;
+  return `${month}/ ${day}/ ${hour}:00`;
 };
 export default function FavoriteMatches() {
   let state = useSelector((state) => {
     return state;
   });
 
-  console.log(state)
   let favorite_array = state.favoriteMatches;
   let [favoriteMatches, setFavoriteMatches] = useState([]);
+
+  let [loading, setLoading] = useState(true);
 
 
 
@@ -50,20 +52,34 @@ export default function FavoriteMatches() {
         setFavoriteMatches([...response.data.response]);
       } catch (error) {
         console.error(error);
+      } finally {
+        setLoading(false);
       }
     };
     fetchData();
   }, []);
 
-  useEffect(() => {
-    console.log(favoriteMatches);
-  }, [favoriteMatches]);
+  let [loadingMsg, setloadingMsg] = useState("Loading...");
+
+  useEffect(()=>{
+    if (loading) {
+      setloadingMsg("Loading...")
+    } 
+    else if (!loading && favoriteMatches.length === 0) {
+      setloadingMsg("No favorite matches yet")
+    }
+    else if (!loading && favoriteMatches.length > 0){
+      setloadingMsg("")
+    }
+  }, [loading])
+
+
 
   let dispatch = useDispatch();
-
   return (
     <div className="favorite_matches">
       <h2>Favorite Matches</h2>
+      <p> {loadingMsg} </p>
       {favoriteMatches.length > 0 ? (
         favoriteMatches.map((match, i) => {
           return (
@@ -108,7 +124,7 @@ export default function FavoriteMatches() {
           );
         })
       ) : (
-        <p>No favorite matches</p>
+       <></>
       )}
     </div>
   );

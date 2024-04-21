@@ -1,0 +1,112 @@
+.live_matches {
+    padding: 2%;
+    background-color: #f3f3f3;
+    color: black;
+    h2 {
+        padding: 10px 0;
+        color: black;
+    }
+    .live_matches_container {
+        padding: 15px;
+        border-bottom: 2px solid rgb(78, 54, 255);
+        background-color: white;
+        margin-bottom: 10px;
+        .flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            img {
+                width: 35px;
+                height: auto;
+            
+            }
+        }
+        p {
+            font-size: 14px;
+            color: black;
+        }
+        .match_day {
+            padding-bottom: 8px;
+        }
+        .text_bold {
+            font-weight: bold;
+        }
+        .img_container{
+            padding-top: 12px;
+            padding-bottom: 8px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            justify-content: center;
+            gap: 20px;
+            img {
+                width: 70px;
+                height: auto;
+                display: block;
+                margin: 0 auto;
+            }
+            #live_score_board {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 30px;
+                font-weight: bold;
+            }
+        }
+        .team_container {
+            padding-bottom: 8px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            justify-content: center;
+            
+            #vs {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                font-size: 16px;
+            }
+            .team_name {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                text-align: center;
+            }
+            
+        }
+        button {
+            padding: 7px 14px;
+            border: 1px solid #d4d4d4;
+            background-color: white;
+            border-radius: 8px;
+            color: black;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            transition: color 0.3s ease;
+            &:hover {
+                background-color: rgb(78, 54, 255);
+                color: white;
+            }
+        }
+        .score_board {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 25px;
+        }
+        .score_history {
+            padding: 1%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            #home_score_history {
+                padding-top: 5px;
+                border-top: 1px solid #d4d4d4;
+            }
+            #away_score_history {
+                padding-top: 5px;
+                border-top: 1px solid #d4d4d4;
+                text-align: right;
+            }
+        }
+    }
+}

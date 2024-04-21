@@ -1,0 +1,59 @@
+.topscore_container {
+    
+    padding-top: 20px;
+    padding-left: 2%;
+    padding-right: 2%;
+
+    .league_names {
+        font-size: 13px;
+    }
+
+    .goals_flex {
+        display: flex;
+        justify-content: space-between;
+        h2 {
+            padding: 10px 0;
+        }
+        h3 {
+            padding: 10px 0;
+            padding-right: 8px;
+        }
+    }
+    
+    
+    .scorer_table {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2px solid rgb(78, 54, 255);
+        margin-top: 2px;
+        padding-bottom: 3px;
+        padding-right: 8px;
+        &:last-child {
+            border-bottom: none;
+        }
+        
+        .left {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 15px;
+            img {
+                width: 25px;
+                height: auto;
+                border-radius: 50%;
+            }
+        }
+    }
+#top_see_more_btn {
+        padding: 7px 14px;
+        border: 1px solid rgb(78, 54, 255);
+        background-color: rgb(78, 54, 255);
+        border-radius: 8px;
+        cursor: pointer;
+        display: block;
+        margin: 0 auto;
+        color: white;
+}
+
+}

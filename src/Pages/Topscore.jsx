@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Nav from "react-bootstrap/Nav";
 import TopScorer from "../Components/TopScorer";
+import "./topScore.scss";
 
 export default function Topscore() {
   const [key, setKey] = useState("home");
