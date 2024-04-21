@@ -38,12 +38,6 @@ export default function LiveMatches() {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    console.log(live_matches);
-
-    // console.log(home_scorer)
-
-  }, [live_matches]);
 
   useEffect(()=>{
     if (loading) {
