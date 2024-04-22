@@ -67,7 +67,7 @@ export default function LiveMatches() {
                   </p>
                 </div>
                 <div className="flex-right">
-                <img src={block} className="block" onClick={()=>{
+                <img src={block} title="not interested in this game!" className="block" onClick={()=>{
                   let new_live_matches = [...live_matches];
                   new_live_matches.splice(i, 1);
                   setLive_matches(new_live_matches);
