@@ -3,6 +3,7 @@ import axios from "axios";
 import Nav from "react-bootstrap/Nav";
 import TopScorer from "../Components/TopScorer";
 import "./topScore.scss";
+import ApiOptions from "./Options/Options";
 
 export default function Topscore() {
   const [key, setKey] = useState("home");
@@ -17,18 +18,7 @@ export default function Topscore() {
 
 
   useEffect(() => {
-    const options = {
-      method: "GET",
-      url: "https://api-football-v1.p.rapidapi.com/v3/players/topscorers",
-      params: {
-        league: league,
-        season: "2023",
-      },
-      headers: {
-        "X-RapidAPI-Key": "67142be9e1msha21067b17d884d6p1f558ejsn8dc79fea8402",
-        "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com",
-      },
-    };
+    const options = { ...ApiOptions({ topscorers: true }), params: { league: league ,  season: '2023'}};
 
     const fetchData = async () => {
       try {

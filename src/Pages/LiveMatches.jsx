@@ -6,6 +6,7 @@ import { addFavoriteMatch } from "../../store.js"
 import { useSelector } from "react-redux"
 import block from "../img/block.svg"
 import "./liveMatches.scss";
+import ApiOptions from "./Options/Options.jsx";
 
 
 export default function LiveMatches() {
@@ -15,15 +16,7 @@ export default function LiveMatches() {
   let [error, setError] = useState(null);
   let state = useSelector((state) => { return state } )
   useEffect(() => {
-    const options = {
-      method: 'GET',
-      url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures',
-      params: {live: 'all'},
-      headers: {
-        'X-RapidAPI-Key': '67142be9e1msha21067b17d884d6p1f558ejsn8dc79fea8402',
-        'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
-      }
-    };
+    const options = ApiOptions({ live: true });
 
     const fetchData = async () => {
       try {

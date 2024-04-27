@@ -3,6 +3,7 @@ import { useState } from "react";
 import "./byTeams.scss"
 import axios from "axios";
 import Box from "../Components/Box";
+import ApiOptions from "./Options/Options";
 
 
 
@@ -14,20 +15,9 @@ function ByTeams() {
   let [display, setDisplay] = useState(false);
   let [loadingMsg, setLoadingMsg] = useState(["Loading...", "Choose a team", ""]);
   let [num, setNum] = useState(2);
-  
 
   async function fetchData(team_name) {
-    const options = {
-      method: "GET",
-      url: "https://api-football-v1.p.rapidapi.com/v3/teams",
-      params: {
-        search: team_name,
-      },
-      headers: {
-        "X-RapidAPI-Key": "67142be9e1msha21067b17d884d6p1f558ejsn8dc79fea8402",
-        "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com",
-      },
-    };
+    const options = { ...ApiOptions({ teams: true }), params: { search: team_name } };
     try {
       const response = await axios.request(options);
       console.log(response.data.response);

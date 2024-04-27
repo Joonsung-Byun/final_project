@@ -6,6 +6,7 @@ import { useSelector } from "react-redux"
 import { useDispatch } from "react-redux"
 import { addFavoriteMatch } from "../../store.js"
 import { matchDate } from "./FavoriteMatches.jsx";
+import ApiOptions from "./Options/Options.jsx";
 import "./comingMatches.scss"
 
 
@@ -21,17 +22,7 @@ export default function Coming_Matches(){
     
 
     useEffect(() => {
-      const options = {
-        method: 'GET',
-        url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures?',
-        params: {
-          next: '50'
-        },
-        headers: {
-          'X-RapidAPI-Key': '67142be9e1msha21067b17d884d6p1f558ejsn8dc79fea8402',
-          'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
-        }
-      };
+      const options = ApiOptions({ next: 50 });
       
       const fetchData = async () => {
         try {

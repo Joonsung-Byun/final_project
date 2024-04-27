@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { removeFavoriteMatch } from "../../store";
 import block from "../img/block.svg";
 import "./favoriteMatches.scss";
+import ApiOptions from "./Options/Options";
 
 export const matchDate = (match_date) => {
   const dateString = match_date;
@@ -16,6 +17,8 @@ export const matchDate = (match_date) => {
 
   return `${month}/ ${day}/ ${hour}:00`;
 };
+
+
 export default function FavoriteMatches() {
   let state = useSelector((state) => {
     return state;
@@ -34,17 +37,11 @@ export default function FavoriteMatches() {
 
   useEffect(() => {
     const options = {
-      method: "GET",
-      url: "https://api-football-v1.p.rapidapi.com/v3/fixtures",
-      params: {
-        ids: transformArrayToString(favorite_array),
-      },
-      headers: {
-        "X-RapidAPI-Key": "67142be9e1msha21067b17d884d6p1f558ejsn8dc79fea8402",
-        "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com",
-      },
+      ...ApiOptions({ favorite: true }), 
+      params: { ids: transformArrayToString(favorite_array) } 
     };
-
+    
+    
     const fetchData = async () => {
       try {
         const response = await axios.request(options);
