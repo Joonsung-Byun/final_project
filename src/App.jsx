@@ -9,8 +9,17 @@ import LiveMatches from "./Pages/LiveMatches";
 import Coming_Matches from "./Pages/Coming_Matches";
 import FavoriteMatches from "./Pages/FavoriteMatches";
 import ByTeams from "./Pages/Byteams";
+import { useState } from "react";
 function App() {
 
+  
+
+  const active = {color: "white"}
+  let [num, setNum] = useState(0)
+
+  function handleClick(num){
+    setNum(num)
+  }
 
   return (
     <div className="app_container">
@@ -20,28 +29,28 @@ function App() {
         <nav id="table_menu">
           <ul>
               <li>
-                <Link to="/" className="home_link">
+                <Link to="/" className="home_link" onClick={ () => {handleClick(0)} }>
                   Live Matches
                 </Link>
               </li>
             
             <li>
-              <Link to="/coming" className="home_link">
+              <Link to="/coming" className="home_link" onClick={ () => {handleClick(1)} }>
                 Upcoming Matches
               </Link>
             </li>
             <li>
-              <Link to="/topscorers" className="home_link">
+              <Link to="/topscorers" className="home_link" onClick={ () => {handleClick(2)} }>
                 Top Scorers 
               </Link>
             </li>
             <li>
-              <Link to="/favorites" className="home_link">
+              <Link to="/favorites" className="home_link" onClick={ () => {handleClick(3)} }>
                 My favorites
               </Link>
             </li>
             <li>
-              <Link to="/byteams" className="home_link">
+              <Link to="/byteams" className="home_link" onClick={ () => {handleClick(4)} }>
                 Search Teams
               </Link>
             </li>
