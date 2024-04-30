@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-const ApiOptions = ({ live, next, favorite, teams, topscorers }) => {
+const ApiOptions = ({ live, next, favorite, teams, topscorers, fixtures }) => {
   const commonHeaders = {
     'X-RapidAPI-Key': '67142be9e1msha21067b17d884d6p1f558ejsn8dc79fea8402',
     'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
@@ -38,6 +38,13 @@ const ApiOptions = ({ live, next, favorite, teams, topscorers }) => {
     return {
       method: "GET",
       url: "https://api-football-v1.p.rapidapi.com/v3/players/topscorers",
+      headers: commonHeaders,
+    }
+  }
+  else if (fixtures) {
+    return {
+      method: "GET",
+      url: "https://api-football-v1.p.rapidapi.com/v3/fixtures",
       headers: commonHeaders,
     }
   }

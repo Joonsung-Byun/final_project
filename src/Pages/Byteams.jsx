@@ -13,19 +13,23 @@ function ByTeams() {
   let [pastFixture, setPastFixture] = useState([]);
   let [nextFixture, setNextFixture] = useState([]);
   let [display, setDisplay] = useState(false);
-  let [loadingMsg, setLoadingMsg] = useState(["Loading...", "Choose a team", ""]);
+  let [loadingMsg, setLoadingMsg] = useState(["Loading...", "Choose a team", " ","No team found"]);
   let [num, setNum] = useState(2);
 
   async function fetchData(team_name) {
     const options = { ...ApiOptions({ teams: true }), params: { search: team_name } };
     try {
       const response = await axios.request(options);
-      console.log(response.data.response);
 
       if (response.data.response.length > 5) {
         setTeams([...response.data.response.slice(0, 5)]);
-      } else {
+        setNum(1);
+      } else if (response.data.response.length == 0) {
+        setNum(3);
+      }
+      else {
         setTeams([...response.data.response]);
+        setNum(1);
       }
       
     } catch (error) {
@@ -34,22 +38,15 @@ function ByTeams() {
   }
 
   useEffect(() => {
-    console.log(pastFixture);
-    console.log(nextFixture);
-  });
+    console.log(num)  
+  }, [num])
 
   return (
     <>
       <div id="byteams_container">
         <h2>Search your team!</h2>
         <form>
-          <input
-          placeholder="Search for a team"
-            type="text"
-            id="searchbar"
-            value={value}
-            onChange={(e) => setValue(e.target.value)}
-          />
+          <input placeholder="Search for a team" type="text" id="searchbar" value={value} onChange={(e) => setValue(e.target.value)} />
           <button
   onClick={(e) => {
     setNum(0);
@@ -71,13 +68,6 @@ function ByTeams() {
         reject(error);
       });
     });
-    
-    searchPromise.then(() => {
-      let newNum = 1;
-      setNum(newNum);
-    }).catch((error) => {
-      console.error(error);
-    });
   }}
 >
   Search
@@ -96,19 +86,7 @@ function ByTeams() {
                   setNum(newNum);
                   e.preventDefault();
                   async function fetchFixtureById(fixtureID) {
-                    const options = {
-                      method: "GET",
-                      url: "https://api-football-v1.p.rapidapi.com/v3/fixtures",
-                      params: {
-                        season: "2023",
-                        team: fixtureID,
-                      },
-                      headers: {
-                        "X-RapidAPI-Key":
-                          "67142be9e1msha21067b17d884d6p1f558ejsn8dc79fea8402",
-                        "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com",
-                      },
-                    };
+                    const options = {...ApiOptions({ fixtures: true}), params: { season: "2023", team: fixtureID }};
                     return await axios.request(options);
                   }
 
